@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="testng">
+    <test name="SteamTest" >
+        <!--<parameter name="manufacturerName" value="samsung" />
+        <parameter name="price" value="1500" />
+        <parameter name="diagonal1" value="40" />
+        <parameter name="diagonal2" value="50" />
+        <parameter name="resolution" value="1920x1080 (Full HD)" />-->
+        <classes>
+            <class name="steam.tests.SteamTest"/>
+        </classes>
+    </test>
+</suite>
