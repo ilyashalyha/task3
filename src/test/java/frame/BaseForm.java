@@ -1,6 +1,7 @@
 package frame;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -17,6 +18,7 @@ import static frame.BaseTest.browser;
 public class BaseForm extends Browser{
 
     public Actions actions = new Actions(driver);
+
 
     public void checkOpenedPageByTitle(String title) {
         String titleLocator = "//h2[@class='pageheader']";
@@ -49,8 +51,9 @@ public class BaseForm extends Browser{
         actions.moveToElement(findElementByStringFormat(locator, value)).click().build().perform();
     }
 
-    public void moveToElementByDriver(String locator, String value) {
-        findElementByStringFormat(locator, value).click();
+    public void moveToElementByJS(String locator, String value) {
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", findElementByStringFormat(locator, value));
     }
 
     public void waitForElement() {
@@ -104,19 +107,11 @@ public class BaseForm extends Browser{
         } else System.out.println("File not deleted");
     }
 
-    protected static String getLocKey(final String key) {
-        ResourceBundle labels = ResourceBundle.getBundle("LabelsBundle", currentLocale);
-
-    }
-
     public String getLocaleValue(String locCode) {
         Locale locale = new Locale(locCode);
         ResourceBundle locBundle = ResourceBundle.getBundle("localization/loc", locale);
         return locBundle.getString("localValue");
     }
-
-
-
 
 
 }

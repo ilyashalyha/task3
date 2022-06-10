@@ -27,7 +27,7 @@ public class MainPage extends BaseSteamPage {
         drdLocaleList.click();
 
         //String localeName = locBundle.getString("localValue");
-        ;
+
         try {
             boolean res = checkLocale(getLocaleValue(locCode));
             if (!res) {
@@ -39,6 +39,7 @@ public class MainPage extends BaseSteamPage {
             drdLocaleList.click();
         }
     }
+
     public boolean checkLocale(String localeName) {
         List<WebElement> allLocales = findElements(localeList);
         for (WebElement elements :

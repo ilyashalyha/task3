@@ -1,8 +1,5 @@
 package steam.tests.forms;
 
-import frame.BaseForm;
-import frame.elements.Block;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
@@ -21,9 +18,9 @@ public class ActionPage extends BaseSteamPage {
     public void selectMaxDiscount() {
 
         if (getDiscountArrayLengths() > 1) {
-            moveToElementByDriver(requiredSpecialsDiscountLocator, String.valueOf(Math.random() * getDiscountArrayLengths()));
+            moveToElementByJS(requiredSpecialsDiscountLocator, String.valueOf(Math.random() * getDiscountArrayLengths()));
         } else if (getDiscountArrayLengths() == 1) {
-            moveToElementByDriver(requiredAloneDiscountLocator, String.valueOf(maxDiscount));
+            moveToElementByJS(requiredAloneDiscountLocator, String.valueOf(maxDiscount));
         }
 
     }

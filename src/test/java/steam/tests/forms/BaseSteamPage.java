@@ -17,8 +17,8 @@ public class BaseSteamPage extends BaseForm {
 
     public void navigateMenu(String menuItem, String subMenuItem) {
 
-        moveToElement(menuItemLocator, getLoc(menuItem));
-        moveToElementAndClick(subMenuItemLocator, getLoc(subMenuItem));
+        moveToElement(menuItemLocator, menuItem);
+        moveToElementAndClick(subMenuItemLocator, subMenuItem);
     }
 
 
