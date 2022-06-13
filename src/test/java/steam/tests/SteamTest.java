@@ -1,11 +1,7 @@
 package steam.tests;
 
-
-import org.testng.annotations.Parameters;
-import steam.tests.forms.BaseSteamPage;
 import frame.BaseTest;
 import steam.tests.forms.*;
-
 
 public class SteamTest extends BaseTest {
 
@@ -26,7 +22,5 @@ public class SteamTest extends BaseTest {
         installSteamPage.checkInstallSteamPageOpened();
         installSteamPage.downloadSteam();
         installSteamPage.checkFileNameAndKill(fileName);
-        //"SteamSetup.exe"
-
     }
 }

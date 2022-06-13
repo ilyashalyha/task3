@@ -81,23 +81,6 @@ public class BaseForm extends Browser{
 
         return steamFile;
     }
-/*
-    public boolean isFileDownloaded(String fileName) {
-        boolean flag = false;
-        long steamFileLength = 0;
-        File steamFile = findDownloadedFile(fileName);
-        for (int i = 0; i < Integer.parseInt(getTimeoutForDownloadFile()); i++) {
-            if (steamFileLength < steamFile.length()) {
-                steamFileLength = steamFile.length();
-                waitForElement();
-            } else if (steamFileLength == steamFile.length()) {
-                flag = true;
-            }
-        }
-
-        return flag;
-    }*/
-
 
     public void checkFileNameAndKill(String fileName) {
         Assert.assertEquals(findDownloadedFile(fileName).getName(), fileName);

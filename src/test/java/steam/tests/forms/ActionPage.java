@@ -3,7 +3,6 @@ package steam.tests.forms;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
-
 public class ActionPage extends BaseSteamPage {
 
     private final String recommendedSpecialsDiscountLocator = "//div[@class='discount_block  discount_block_inline']/div[@class='discount_pct']";
@@ -13,8 +12,6 @@ public class ActionPage extends BaseSteamPage {
     private int maxDiscount = 0;
     public String maxDiscountValue = String.valueOf(getMaxDiscount());
 
-
-
     public void selectMaxDiscount() {
 
         if (getDiscountArrayLengths() > 1) {
@@ -22,7 +19,6 @@ public class ActionPage extends BaseSteamPage {
         } else if (getDiscountArrayLengths() == 1) {
             moveToElementByJS(requiredAloneDiscountLocator, String.valueOf(maxDiscount));
         }
-
     }
 
     public int[] findMaxDiscount() {
@@ -52,5 +48,4 @@ public class ActionPage extends BaseSteamPage {
     public int getDiscountArrayLengths() {
         return findMaxDiscount()[1];
     }
-
 }

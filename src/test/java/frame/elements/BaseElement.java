@@ -5,8 +5,6 @@ import org.openqa.selenium.*;
 
 import static frame.BaseTest.browser;
 
-
-
 public class BaseElement extends BaseForm {
 
     protected By locator;

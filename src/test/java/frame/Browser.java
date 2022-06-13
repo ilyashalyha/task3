@@ -5,12 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.nio.file.Paths;
 import java.time.Duration;
-import java.util.Objects;
-
-import static frame.BaseTest.browser;
 
 public class Browser {
     public static WebDriver driver;

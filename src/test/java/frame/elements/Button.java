@@ -9,10 +9,4 @@ public class Button extends BaseElement {
         super(locator, name);
     }
 
-    public Button(String format, String value) {
-        super(format, value);
-
-    }
-
-
 }

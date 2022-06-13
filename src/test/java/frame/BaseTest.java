@@ -6,6 +6,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public abstract class BaseTest {
+
     public static Browser browser;
 
     public abstract void runTest(String parameter);
