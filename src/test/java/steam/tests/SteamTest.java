@@ -13,7 +13,7 @@ public class SteamTest extends BaseTest {
         browser.navigate("https://store.steampowered.com/");
         MainPage mainPage = new MainPage();
         mainPage.setLocale("en");
-        mainPage.navigateMenu("Categories", "Action");
+        mainPage.navigateMenu();
         ActionPage actionPage = new ActionPage();
         actionPage.checkOpenedPageByTitle("Action");
         actionPage.selectMaxDiscount();

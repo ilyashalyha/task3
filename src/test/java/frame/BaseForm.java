@@ -17,8 +17,9 @@ import static frame.BaseTest.browser;
 
 public class BaseForm extends Browser{
 
-    public Actions actions = new Actions(driver);
+    public ResourceBundle locBundle;
 
+    private Actions actions = new Actions(driver);
 
     public void checkOpenedPageByTitle(String title) {
         String titleLocator = "//h2[@class='pageheader']";
@@ -28,8 +29,6 @@ public class BaseForm extends Browser{
     public void checkOpenedPageByText(String value, String res) {
         Assert.assertEquals(value, res);
     }
-
-
 
     public void assertIsOpenedPage(String locator) {
         Assert.assertTrue(driver.findElement(By.xpath(locator)).isDisplayed());
@@ -82,7 +81,7 @@ public class BaseForm extends Browser{
 
         return steamFile;
     }
-
+/*
     public boolean isFileDownloaded(String fileName) {
         boolean flag = false;
         long steamFileLength = 0;
@@ -97,21 +96,31 @@ public class BaseForm extends Browser{
         }
 
         return flag;
-    }
+    }*/
 
 
     public void checkFileNameAndKill(String fileName) {
         Assert.assertEquals(findDownloadedFile(fileName).getName(), fileName);
         if (findDownloadedFile(fileName).delete()) {
-            System.out.println("File deleted");
-        } else System.out.println("File not deleted");
+            System.out.println("Downloaded file deleted");
+        } else System.out.println("Downloaded file is not deleted");
     }
 
-    public String getLocaleValue(String locCode) {
+    public void setLocBundle(String locCode) {
         Locale locale = new Locale(locCode);
-        ResourceBundle locBundle = ResourceBundle.getBundle("localization/loc", locale);
-        return locBundle.getString("localValue");
+        locBundle = ResourceBundle.getBundle("localization/loc", locale);
     }
 
+    public ResourceBundle getLocBundle() {
+        return locBundle;
+    }
+
+    public String getLoc(String locPoint) {
+        return getLocBundle().getString(locPoint);
+    }
+
+    public void setUpLocale(String locCode) {
+        setLocBundle(locCode);
+    }
 
 }

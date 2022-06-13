@@ -23,6 +23,4 @@ public class InstallSteamPage extends BaseSteamPage {
     public void downloadSteam() {
         btnDownloadSteam.click();
     }
-
-
 }

@@ -1,13 +1,13 @@
 package steam.tests.forms;
 
-import frame.BaseForm;
+
 import frame.elements.Block;
 import frame.elements.Button;
 import frame.elements.Dropdown;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
-import static frame.Browser.driver;
+
 
 public class AgeForm extends BaseSteamPage{
 
@@ -29,6 +29,6 @@ public class AgeForm extends BaseSteamPage{
             drdAgeYear.click();
             drdPoint2003.click();
             btnViewProductPage.click();
-        } else System.out.println("There are no age check");
+        } else System.out.println("There is no age check");
     }
 }

@@ -55,26 +55,20 @@ public class Browser {
     private static void initProperties() {
         props = new PropertiesResourceManager(PROPERTIES_FILE);
         currentBrowser = Browser.Browsers.valueOf(getBrowserProp().toUpperCase());
-
         timeoutForPageLoad = props.getProperty(DEFAULT_PAGE_LOAD_TIMEOUT);
         timeoutForScriptLoad = props.getProperty(DEFAULT_SCRIPT_LOAD_TIMEOUT);
         timeoutForImplicitWait = props.getProperty(DEFAULT_IMPLICIT_TIMEOUT);
         timeoutForDownloadFile = props.getProperty(DEFAULT_DOWNLOAD_FILE_TIMEOUT);
-
-
     }
 
     public static Browser getInstance() {
         if (instance == null) {
-
             initProperties();
             driver = BrowserFactory.setUp(currentBrowser);
             instance = new Browser();
         }
         return instance;
     }
-
-
 
     public void waitForPageToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(timeoutForPageLoad)));
@@ -133,7 +127,6 @@ public class Browser {
         }
     }
 
-
     public void navigate(final String url) {
         driver.navigate().to(url);
         waitForPageToLoad();
@@ -142,5 +135,4 @@ public class Browser {
     public WebDriver getDriver() {
         return driver;
     }
-
 }

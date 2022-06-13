@@ -44,15 +44,9 @@ public abstract class BrowserFactory {
                 option.setScriptTimeout(Duration.ofSeconds(Long.parseLong(Browser.getTimeoutForScriptLoad())));
                 driver = new FirefoxDriver(option);
                 driver.manage().window().maximize();
-                //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(Browser.getTimeoutForPageLoad())));
-                //driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(Long.parseLong(Browser.getTimeoutForScriptLoad())));
-                //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(Browser.getTimeoutForImplicitWait())));
             }
             default -> throw new IllegalStateException("Unexpected value: " + type);
         }
         return driver;
-
     }
-
-
 }
