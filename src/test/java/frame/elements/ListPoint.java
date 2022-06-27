@@ -2,8 +2,9 @@ package frame.elements;
 
 import org.openqa.selenium.By;
 
-public class ListPoint {
+public class ListPoint extends BaseElement{
 
     public ListPoint(By locator, String nameOf) {
+        super(locator, nameOf);
     }
 }

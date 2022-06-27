@@ -1,6 +1,8 @@
-package steam.tests.forms;
+package steam.pageObjects;
 
 import frame.elements.Dropdown;
+import frame.elements.ListPoint;
+import frame.elements.StringFormat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -8,9 +10,13 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class MainPage extends BaseSteamPage {
-    private String localeList = "//a[@class='popup_menu_item tight']";
-    private String localeLocator = "//a[contains(text(), '%s')]";
+    private ListPoint localeList = new ListPoint(By.xpath("//a[@class='popup_menu_item tight']"), "locale list locator");
+    private StringFormat localeLocator = new StringFormat(By.xpath("//a[contains(text(), '%s')]"), "template of locale locator");
     private Dropdown drdLocaleList = new Dropdown(By.xpath("//span[@id='language_pulldown']"), "locale list dropdown");
+
+    public MainPage() {
+        super(driver);
+    }
 
     public void setLocale(String locCode) {
         setUpLocale(locCode);
@@ -21,7 +27,7 @@ public class MainPage extends BaseSteamPage {
             if (!res) {
                 drdLocaleList.click();
             } else {
-                findElementByStringFormat(localeLocator, getLoc("localValue")).click();
+                localeLocator.findElementByStringFormat(getLoc("localValue")).click();
             }
         } catch (NoSuchElementException e) {
             drdLocaleList.click();
@@ -29,7 +35,7 @@ public class MainPage extends BaseSteamPage {
     }
 
     public boolean checkLocale(String localeName) {
-        List<WebElement> allLocales = findElements(localeList);
+        List<WebElement> allLocales = localeList.findElements();
         for (WebElement elements :
                 allLocales) {
             String localeNameValuesList = elements.getText();

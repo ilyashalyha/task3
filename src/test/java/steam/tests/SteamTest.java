@@ -1,17 +1,16 @@
 package steam.tests;
 
 import frame.BaseTest;
-import steam.tests.forms.*;
+import steam.pageObjects.*;
 
 public class SteamTest extends BaseTest {
 
     public void runTest(String fileName) {
-        browser.navigate("https://store.steampowered.com/");
         MainPage mainPage = new MainPage();
         mainPage.setLocale("en");
         mainPage.navigateMenu();
         ActionPage actionPage = new ActionPage();
-        actionPage.checkOpenedPageByTitle("Action");
+        actionPage.checkOpenedPage();
         actionPage.selectMaxDiscount();
         AgeForm ageForm = new AgeForm();
         ageForm.checkForAgeForm();
@@ -21,6 +20,6 @@ public class SteamTest extends BaseTest {
         InstallSteamPage installSteamPage = new InstallSteamPage();
         installSteamPage.checkInstallSteamPageOpened();
         installSteamPage.downloadSteam();
-        installSteamPage.checkFileNameAndKill(fileName);
+        installSteamPage.checkFileName(fileName);
     }
 }

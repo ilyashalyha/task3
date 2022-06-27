@@ -1,4 +1,4 @@
-package steam.tests.forms;
+package steam.pageObjects;
 
 import frame.elements.Button;
 import frame.elements.InfoField;
@@ -6,8 +6,12 @@ import org.openqa.selenium.By;
 
 public class GamePage extends BaseSteamPage {
 
-    private InfoField fldDiscount = new InfoField(By.xpath("//div[@class='discount_block game_purchase_discount']/div[@class='discount_pct']"));
+    private InfoField fldDiscount = new InfoField(By.xpath("//div[@class='discount_block game_purchase_discount']/div[@class='discount_pct']"), "Actions heaqder");
     private Button btnInstallSteam = new Button(By.xpath("//a[@class='header_installsteam_btn_content']"), "install Steam button");
+
+    public GamePage() {
+        super(driver);
+    }
 
     public void checkGamePage(String value) {
         checkOpenedPageByText(fldDiscount.getElement().getText().substring(1, 3), value);

@@ -17,11 +17,13 @@ public class Browser {
     private static final String DEFAULT_SCRIPT_LOAD_TIMEOUT = "scriptLoadTimeout";
     private static final String DEFAULT_IMPLICIT_TIMEOUT = "implicitWait";
     private static final String DEFAULT_DOWNLOAD_FILE_TIMEOUT = "downloadFileTimeout";
+    private static final String URL = "url";
     private static String timeoutForPageLoad;
     private static String timeoutForScriptLoad;
     private static String timeoutForImplicitWait;
     private static String timeoutForDownloadFile;
-    public static Browsers currentBrowser;
+    private static String url;
+    public static BrowserFactory.Browsers currentBrowser;
 
     public static String getBrowserProp() {
         return props.getProperty(BROWSER_PROP);
@@ -43,13 +45,17 @@ public class Browser {
         return timeoutForDownloadFile;
     }
 
+    public static String getURL() {
+        return props.getProperty(URL);
+    }
+
     public boolean isBrowserAlive() {
         return instance != null;
     }
 
     private static void initProperties() {
         props = new PropertiesResourceManager(PROPERTIES_FILE);
-        currentBrowser = Browser.Browsers.valueOf(getBrowserProp().toUpperCase());
+        currentBrowser = BrowserFactory.Browsers.valueOf(getBrowserProp().toUpperCase());
         timeoutForPageLoad = props.getProperty(DEFAULT_PAGE_LOAD_TIMEOUT);
         timeoutForScriptLoad = props.getProperty(DEFAULT_SCRIPT_LOAD_TIMEOUT);
         timeoutForImplicitWait = props.getProperty(DEFAULT_IMPLICIT_TIMEOUT);
@@ -92,35 +98,7 @@ public class Browser {
         }
     }
 
-    public enum Browsers {
-        /**
-         * @uml.property name="FIREFOX"
-         * @uml.associationEnd
-         */
-        FIREFOX("firefox"), /**
-         * @uml.property name="CHROME"
-         * @uml.associationEnd
-         */
-        CHROME("chrome");
 
-        public String value;
-
-        /**
-         * Constructor
-         * @param values Value
-         */
-        Browsers(final String values) {
-            value = values;
-        }
-
-        /**
-         * Returns string value
-         * @return String value
-         */
-        public String toString() {
-            return value;
-        }
-    }
 
     public void navigate(final String url) {
         driver.navigate().to(url);

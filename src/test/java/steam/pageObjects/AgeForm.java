@@ -1,4 +1,4 @@
-package steam.tests.forms;
+package steam.pageObjects;
 
 import frame.elements.Block;
 import frame.elements.Button;
@@ -12,6 +12,10 @@ public class AgeForm extends BaseSteamPage{
     private Dropdown drdAgeYear = new Dropdown(By.id("ageYear"), "age year dropdown");
     private Dropdown drdPoint2003 = new Dropdown(By.xpath("//option[@value='2003']"), "dropdown point 2003");
     private Button btnViewProductPage = new Button(By.id("view_product_page_btn"), "view product page button");
+
+    public AgeForm() {
+        super(driver);
+    }
 
     public boolean checkAgeFormAvailability() {
         try {

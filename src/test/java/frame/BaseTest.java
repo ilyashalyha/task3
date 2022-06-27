@@ -14,7 +14,9 @@ public abstract class BaseTest {
     @BeforeTest
     public void before() {
         browser = Browser.getInstance();
+        browser.navigate(Browser.getURL());
     }
+
     @Parameters({"fileName"})
     @Test
     public void xTest(String fileName) {

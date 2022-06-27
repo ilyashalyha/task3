@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public abstract class BrowserFactory {
 
-    public static WebDriver setUp(Browser.Browsers type) {
+    public static WebDriver setUp(Browsers type) {
         WebDriver driver;
 
         switch (type) {
@@ -49,6 +49,37 @@ public abstract class BrowserFactory {
         }
 
 
+
         return driver;
+    }
+
+    enum Browsers {
+        /**
+         * @uml.property name="FIREFOX"
+         * @uml.associationEnd
+         */
+        FIREFOX("firefox"), /**
+         * @uml.property name="CHROME"
+         * @uml.associationEnd
+         */
+        CHROME("chrome");
+
+        public String value;
+
+        /**
+         * Constructor
+         * @param values Value
+         */
+        Browsers(final String values) {
+            value = values;
+        }
+
+        /**
+         * Returns string value
+         * @return String value
+         */
+        public String toString() {
+            return value;
+        }
     }
 }
