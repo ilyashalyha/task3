@@ -1,13 +1,10 @@
 package steam.tests.forms;
 
-
 import frame.elements.Block;
 import frame.elements.Button;
 import frame.elements.Dropdown;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-
-
 
 public class AgeForm extends BaseSteamPage{
 

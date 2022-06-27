@@ -46,7 +46,4 @@ public class BaseElement extends BaseForm {
         return getElement().isDisplayed();
     }
 
-
-
-
 }

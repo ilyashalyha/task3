@@ -35,7 +35,7 @@ public abstract class BrowserFactory {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxProfile profile = new FirefoxProfile();
                 profile.setPreference("browser.download.folderList", 2);
-                //profile.setPreference("browser.download.manager.showWhenStarting", false);
+                profile.setPreference("browser.download.manager.showWhenStarting", false);
                 profile.setPreference("browser.download.dir", Paths.get("").toAbsolutePath().toString());
                 FirefoxOptions option = new FirefoxOptions();
                 option.setProfile(profile);
@@ -47,6 +47,8 @@ public abstract class BrowserFactory {
             }
             default -> throw new IllegalStateException("Unexpected value: " + type);
         }
+
+
         return driver;
     }
 }

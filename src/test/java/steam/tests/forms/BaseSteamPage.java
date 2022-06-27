@@ -8,7 +8,6 @@ public class BaseSteamPage extends BaseForm {
     private static String subMenuItemLocator = "//a[@class='popup_menu_item' and contains(text(), '%s')]";
 
     public void navigateMenu() {
-
         moveToElement(menuItemLocator, getLoc("menuItem"));
         moveToElementAndClick(subMenuItemLocator, getLoc("subMenuItem"));
     }
