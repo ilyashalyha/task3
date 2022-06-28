@@ -9,27 +9,31 @@ import java.util.List;
 
 public class ActionPage extends BaseSteamPage {
 
-    private Block recommendedSpecialsDiscountLocator = new Block(By.xpath("//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv']"), "discount block");
-    private StringFormat requiredSpecialsDiscountLocator = new StringFormat(By.xpath("//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv' and contains(text(), '%s')]"), "template of discount locators");
-    private StringFormat requiredAloneDiscountLocator = new StringFormat(By.xpath("//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv' and contains(text(), '%s')]"), "template of required discount locator");
-    private static Label actionsHeader = new Label(By.xpath("//div[@class='contenthubmaincarousel_ContentHubTitle_9tb4j ContentHubTitle']"), "Actions heaqder");
-
     private int maxDiscount = 0;
+    private Block recommendedSpecialsDiscountLocator = new Block(By.xpath("//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv']"), "discount block");
+    private String requiredSpecialsDiscountLocator = "//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv' and contains(text(), '%s')]";
+    private String requiredAloneDiscountLocator = "//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv' and contains(text(), '%s')]";
+    private static Label actionsHeader = new Label(By.xpath("//div[@class='contenthubmaincarousel_ContentHubTitle_9tb4j ContentHubTitle']"), "Actions heaqder");
+    private Block requiredSpecialsDiscounts = new Block(By.xpath(String.format(requiredSpecialsDiscountLocator,
+            String.valueOf(Math.random() * getDiscountArrayLengths()))), "all required blocks with discounts");
+    private Block requiredAloneDiscount = new Block(By.xpath(String.format(requiredAloneDiscountLocator,
+            String.valueOf(maxDiscount))), "alone block with max discount");
+
     public String maxDiscountValue = String.valueOf(getMaxDiscount());
 
     public ActionPage() {
         super(By.xpath(actionsHeader.getLocator()), "Actions header");
     }
-
+/*
     public void checkOpenedPage() {
         assertIsOpenedPage(actionsHeader.getLocator());
     }
-
+*/
     public void selectMaxDiscount() {
         if (getDiscountArrayLengths() > 1) {
-            requiredSpecialsDiscountLocator.moveToElementByJS(String.valueOf(Math.random() * getDiscountArrayLengths()));
+            requiredSpecialsDiscounts.clickViaJS();
         } else if (getDiscountArrayLengths() == 1) {
-            requiredAloneDiscountLocator.moveToElementByJS(String.valueOf(maxDiscount));
+            requiredAloneDiscount.clickViaJS();
         }
     }
 

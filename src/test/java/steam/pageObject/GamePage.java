@@ -19,6 +19,6 @@ public class GamePage extends BaseSteamPage {
     }
 
     public void clickInstallSteamButton() {
-        btnInstallSteam.click();
+        btnInstallSteam.clickAndWait();
     }
 }

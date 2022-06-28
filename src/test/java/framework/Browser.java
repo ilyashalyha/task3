@@ -11,9 +11,9 @@ import java.util.ResourceBundle;
 public class Browser {
     public static WebDriver driver;
     private static Browser instance;
-    static final String PROPERTIES_FILE = "conf.properties";
+    private static final String PROPERTIES_FILE = "conf.properties";
     private static final String BROWSER_PROP = "browser";
-    public static PropertiesResourceManager props;
+    private static PropertiesResourceManager props;
     private static final String DEFAULT_PAGE_LOAD_TIMEOUT = "pageLoadTimeout";
     private static final String DEFAULT_SCRIPT_LOAD_TIMEOUT = "scriptLoadTimeout";
     private static final String DEFAULT_IMPLICIT_TIMEOUT = "implicitWait";

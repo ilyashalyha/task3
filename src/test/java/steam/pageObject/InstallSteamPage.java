@@ -13,12 +13,11 @@ public class InstallSteamPage extends BaseSteamPage {
     public InstallSteamPage() {
         super(By.xpath(steamLogo), "install steam page");
     }
-
-
+    /*
     public void checkInstallSteamPageOpened() {
         assertIsOpenedPage(steamLogo);
     }
-
+*/
     public void downloadSteam() {
         btnDownloadSteam.click();
     }

@@ -36,13 +36,25 @@ public class BaseElement extends Browser {
 
 
     public WebElement getElement() {
-        waitForIsElementPresent();
         return findElement(locator);
     }
 
 
     public void click() {
-        getElement().click();
+        waitForIsElementPresent();
+        if (browser.getDriver() instanceof JavascriptExecutor) {
+            ((JavascriptExecutor) browser.getDriver()).executeScript("arguments[0].style.border='3px solid yellow'", element);
+            element.click();
+        }
+    }
+
+    public void clickAndWait() {
+        waitForIsElementPresent();
+        if (browser.getDriver() instanceof JavascriptExecutor) {
+            ((JavascriptExecutor) browser.getDriver()).executeScript("arguments[0].style.border='3px solid yellow'", element);
+            element.click();
+        }
+        browser.waitForPageToLoad();
     }
 
     public WebElement findElement(By locator) {
@@ -53,17 +65,17 @@ public class BaseElement extends Browser {
         return browser.getDriver().findElement(By.xpath(String.format(getLocator(), value)));
     }
 
-    public void moveToElement(String value) {
-        actions.moveToElement(findElementByStringFormat(value)).pause(Duration.ofMillis(500)).build().perform();
+    public void moveToElement() {
+        actions.moveToElement(getElement()).pause(Duration.ofMillis(500)).build().perform();
     }
 
-    public void moveToElementAndClick(String value) {
-        actions.moveToElement(findElementByStringFormat(value)).click().build().perform();
+    public void moveToElementAndClick() {
+        actions.moveToElement(getElement()).click().build().perform();
     }
 
-    public void moveToElementByJS(String value) {
+    public void clickViaJS() {
         JavascriptExecutor executor = (JavascriptExecutor)driver;
-        executor.executeScript("arguments[0].click();", findElementByStringFormat(value));
+        executor.executeScript("arguments[0].click();", getElement());
     }
 
     public void waitForElement() {
