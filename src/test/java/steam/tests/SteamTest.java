@@ -1,16 +1,19 @@
 package steam.tests;
 
-import frame.BaseTest;
-import steam.pageObjects.*;
+import framework.BaseTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import steam.pageObject.*;
 
 public class SteamTest extends BaseTest {
 
+    @Parameters({"fileName"})
+    @Test
     public void runTest(String fileName) {
         MainPage mainPage = new MainPage();
         mainPage.setLocale("en");
         mainPage.navigateMenu();
         ActionPage actionPage = new ActionPage();
-        actionPage.checkOpenedPage();
         actionPage.selectMaxDiscount();
         AgeForm ageForm = new AgeForm();
         ageForm.checkForAgeForm();
@@ -18,7 +21,6 @@ public class SteamTest extends BaseTest {
         gamePage.checkGamePage(actionPage.maxDiscountValue);
         gamePage.clickInstallSteamButton();
         InstallSteamPage installSteamPage = new InstallSteamPage();
-        installSteamPage.checkInstallSteamPageOpened();
         installSteamPage.downloadSteam();
         installSteamPage.checkFileName(fileName);
     }

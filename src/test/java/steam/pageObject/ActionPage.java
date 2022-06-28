@@ -1,8 +1,8 @@
-package steam.pageObjects;
+package steam.pageObject;
 
-import frame.elements.Block;
-import frame.elements.InfoField;
-import frame.elements.StringFormat;
+import framework.elements.Block;
+import framework.elements.Label;
+import framework.elements.StringFormat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -12,13 +12,13 @@ public class ActionPage extends BaseSteamPage {
     private Block recommendedSpecialsDiscountLocator = new Block(By.xpath("//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv']"), "discount block");
     private StringFormat requiredSpecialsDiscountLocator = new StringFormat(By.xpath("//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv' and contains(text(), '%s')]"), "template of discount locators");
     private StringFormat requiredAloneDiscountLocator = new StringFormat(By.xpath("//div[@class='salepreviewwidgets_StoreSaleDiscountBox_2fpFv' and contains(text(), '%s')]"), "template of required discount locator");
-    private InfoField actionsHeader = new InfoField(By.xpath("//div[@class='contenthubmaincarousel_ContentHubTitle_9tb4j ContentHubTitle']"), "Actions heaqder");
+    private static Label actionsHeader = new Label(By.xpath("//div[@class='contenthubmaincarousel_ContentHubTitle_9tb4j ContentHubTitle']"), "Actions heaqder");
 
     private int maxDiscount = 0;
     public String maxDiscountValue = String.valueOf(getMaxDiscount());
 
     public ActionPage() {
-        super(driver);
+        super(By.xpath(actionsHeader.getLocator()), "Actions header");
     }
 
     public void checkOpenedPage() {

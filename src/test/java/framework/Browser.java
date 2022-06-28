@@ -1,4 +1,4 @@
-package frame;
+package framework;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ResourceBundle;
 
 public class Browser {
     public static WebDriver driver;
@@ -22,8 +23,8 @@ public class Browser {
     private static String timeoutForScriptLoad;
     private static String timeoutForImplicitWait;
     private static String timeoutForDownloadFile;
-    private static String url;
     public static BrowserFactory.Browsers currentBrowser;
+    public static ResourceBundle locBundle;
 
     public static String getBrowserProp() {
         return props.getProperty(BROWSER_PROP);
@@ -97,8 +98,6 @@ public class Browser {
             instance = null;
         }
     }
-
-
 
     public void navigate(final String url) {
         driver.navigate().to(url);
