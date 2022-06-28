@@ -4,7 +4,6 @@ import framework.WorkWithLocales;
 import framework.elements.Dropdown;
 import framework.elements.Label;
 import framework.elements.ListPoint;
-import framework.elements.StringFormat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -24,10 +23,8 @@ public class MainPage extends BaseSteamPage {
     }
 
     public void setLocale(String locCode) {
-
         locales.setUpLocale(locCode);
         drdLocaleList.click();
-
         try {
             boolean res = checkLocale(locales.getLoc("localValue"));
             if (!res) {

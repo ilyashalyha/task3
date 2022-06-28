@@ -8,5 +8,4 @@ public class BaseSteamPage extends BaseForm {
     protected BaseSteamPage(By locator, String formTitle) {
         super(locator, formTitle);
     }
-
 }

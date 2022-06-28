@@ -2,7 +2,6 @@ package framework;
 
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
 import java.io.File;
 import java.nio.file.Paths;
 import java.time.Duration;
@@ -32,7 +31,6 @@ public class WorkWithFiles extends Browser {
                 } else break;
             }
         } while (downloadedFile == null);
-
         return downloadedFile;
     }
 

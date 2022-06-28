@@ -6,15 +6,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import java.lang.reflect.Field;
 import java.time.Duration;
 import java.util.List;
-
 import static framework.BaseTest.browser;
 
 public class BaseElement extends Browser {
-
     protected By locator;
     protected String name;
     protected WebElement element;
@@ -34,11 +31,9 @@ public class BaseElement extends Browser {
         locator = loc;
     }
 
-
     public WebElement getElement() {
         return findElement(locator);
     }
-
 
     public void click() {
         waitForIsElementPresent();
@@ -144,12 +139,10 @@ public class BaseElement extends Browser {
     }
 
     public boolean isPresent() {
-
         return isPresent(TIMEOUT_WAIT_0);
     }
 
     public boolean isPresent(int timeout) {
-
         WebDriverWait wait = new WebDriverWait(Browser.getInstance().getDriver(), Duration.ofSeconds(timeout));
         browser.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT_WAIT_0));
         try {

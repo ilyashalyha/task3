@@ -3,7 +3,6 @@ package steam.pageObject;
 import framework.WorkWithLocales;
 import framework.elements.Button;
 import framework.elements.Label;
-import framework.elements.StringFormat;
 import org.openqa.selenium.By;
 
 public class Menu extends BaseSteamPage {

@@ -4,13 +4,8 @@ import framework.elements.Label;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import java.util.Date;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
 
 public class BaseForm extends Browser{
-
-
     protected By titleLocator;
     protected String title;
     protected String name;
@@ -51,7 +46,4 @@ public class BaseForm extends Browser{
     public void assertIsOpenedPage(String locator) {
         Assert.assertTrue(driver.findElement(By.xpath(locator)).isDisplayed());
     }
-
-
-
 }

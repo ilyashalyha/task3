@@ -47,9 +47,6 @@ public abstract class BrowserFactory {
             }
             default -> throw new IllegalStateException("Unexpected value: " + type);
         }
-
-
-
         return driver;
     }
 

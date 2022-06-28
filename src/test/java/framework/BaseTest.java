@@ -4,7 +4,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 public abstract class BaseTest {
-
     public static Browser browser;
 
     @BeforeTest
