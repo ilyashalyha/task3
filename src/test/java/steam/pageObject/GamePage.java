@@ -1,11 +1,11 @@
 package steam.pageObject;
 
 import framework.elements.Button;
-import framework.elements.InfoField;
+import framework.elements.TextBox;
 import org.openqa.selenium.By;
 
 public class GamePage extends BaseSteamPage {
-    private static InfoField fldDiscount = new InfoField(By.xpath("//div[@class='discount_block game_purchase_discount']/div[@class='discount_pct']"), "Actions header");
+    private static TextBox fldDiscount = new TextBox(By.xpath("//div[@class='discount_block game_purchase_discount']/div[@class='discount_pct']"), "Actions header");
     private Button btnInstallSteam = new Button(By.xpath("//a[@class='header_installsteam_btn_content']"), "install Steam button");
 
     public GamePage() {
