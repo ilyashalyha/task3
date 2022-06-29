@@ -11,15 +11,15 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class MainPage extends BaseSteamPage {
-    private static Label mainPageLocator = new Label(By.xpath("//div[@class='promo_link home_header_textimage_ctn']"), "Main page locator");
-    private ListPoint localeList = new ListPoint(By.xpath("//a[@class='popup_menu_item tight']"), "locale list locator");
+    private static Label lblMainPageLocator = new Label(By.xpath("//div[@class='promo_link home_header_textimage_ctn']"), "Main page locator");
+    private ListPoint lptLocaleList = new ListPoint(By.xpath("//a[@class='popup_menu_item tight']"), "locale list locator");
     private String localeLocator = "//a[contains(text(), '%s')]";
     private Dropdown drdLocaleList = new Dropdown(By.xpath("//span[@id='language_pulldown']"), "locale list dropdown");
     private WorkWithLocales locales = new WorkWithLocales();
-    private ListPoint localePoint;
+    private ListPoint lptLocalePoint;
 
     public MainPage() {
-        super(By.xpath(mainPageLocator.getLocator()), "Main page");
+        super(By.xpath(lblMainPageLocator.getLocator()), "Main page");
     }
 
     public void setLocale(String locCode) {
@@ -30,8 +30,8 @@ public class MainPage extends BaseSteamPage {
             if (!res) {
                 drdLocaleList.clickViaJS();
             } else {
-                localePoint = new ListPoint(By.xpath(String.format(localeLocator, locales.getLoc("localValue"))), "locale point in multiselect");
-                localePoint.click();
+                lptLocalePoint = new ListPoint(By.xpath(String.format(localeLocator, locales.getLoc("localValue"))), "locale point in multiselect");
+                lptLocalePoint.click();
             }
         } catch (NoSuchElementException | NullPointerException e) {
             drdLocaleList.click();
@@ -39,7 +39,7 @@ public class MainPage extends BaseSteamPage {
     }
 
     public boolean checkLocale(String localeName) {
-        List<WebElement> allLocales = localeList.findElements();
+        List<WebElement> allLocales = lptLocaleList.findElements();
         for (WebElement elements :
                 allLocales) {
             String localeNameValuesList = elements.getText();

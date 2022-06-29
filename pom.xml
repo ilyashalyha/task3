@@ -57,7 +57,8 @@
                     <version>3.0.0-M5</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <!-- src/test/resources/${suite}.xml or src/test/resources/testng.xml -->
+                            <!-- Use src/test/resources/${suite}.xml for maven test run
+                                 or src/test/resources/testng.xml for ide test run -->
                             <suiteXmlFile>src/test/resources/${suite}.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
